@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Reading List</title>
+    <!-- links -->
+    <link rel="stylesheet" type="stylesheet" href="styles/main.css">
+    <script rel="javascript" type="text/javascript" src="model/app.js"></script>
+  </head>
+  <body>
+    <h1>Hello World</h1>
+    <fieldset class="form-container">
+      <legend>Add a book to your reading list</legend>
+      <form id="reading-form">
+        <legend>Details</legend>
+        <label for="book_title">Title</label>
+        <input type="text" id="book_title">
+        <label for="author_name">Author</label>
+        <input type="text" id="author_name">
+        <legend>Cathegory</legend>
+        <label for="book">Book</label>
+        <input type="radio" id="book" name="category-selection" value="Book" />
+        <label for="blog_post">Blog Post</label>
+        <input type="radio" id="blog_post" name="category-selection" value="Blog Post" />
+        <label for="blog_post">Fanfiction</label>
+        <input type="radio" id="fanfiction" name="category-selection" value="Fanfiction" />
+        <legend>Genre</legend>
+        <select id="select">
+          <option disabled selected>Select Genre</option>
+          <option value="Young">Young</option>
+          <option value="Young Adult">Young Adult</option>
+          <option value="Fantasy">Fantasy</option>
+          <option value="Sci-fi">Sci-fi</option>
+          <option value="Realism">Realism</option>
+          <option value="Magic Realism">Magic Realism</option>
+        </select>
+        <button type="submit" id="submit">Add Reading</button>
+      </form>
+    </fieldset>
+    <fieldset class="reading-list-container">
+      <legend>To Read:</legend>
+      <!-- here will span the reading objects -->
+    </fieldset>
+  </body>
+</html>
