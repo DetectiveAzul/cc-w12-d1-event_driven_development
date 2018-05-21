@@ -6,13 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function handleForm(event) {
   event.preventDefault();
-  //Check if is not a valid form
-  if (!isValidForm()) {
-    console.warn("Author and Book cannot be empty");
-    return ;
-  }
-  //Console.log
-  console.log("You have submitted the form");
+
   //Get the values for creating a Reading object
   const reading = {
     title: this.book_title.value,
@@ -20,6 +14,13 @@ function handleForm(event) {
     cathegory: this.category.value,
     genre: this.select.value
   };
+
+  // Check if is not a valid form
+  if (!isValidForm(reading)) {
+    console.warn("Author and Book cannot be empty");
+    return ;
+  }
+
   console.table(reading);
   //Get the parent container for all the readings
   const allTheReadings = document.querySelector('#reading-list-container');
@@ -32,7 +33,7 @@ function handleForm(event) {
   //Transform the book onto html elements
   for (let key in reading) {
     let line = document.createElement('p');
-    line.textContent = `${key}: ${reading.key}`
+    line.textContent = `${key}: ${reading[key]}`
     readingDiv.appendChild(line);
   };
 
@@ -41,9 +42,6 @@ function handleForm(event) {
   this.reset();
 };
 
-function isValidForm() {
-  return isEmpty('#book_title') && isEmpty('#author_name');
-}
-function isEmpty(container) {
-  return document.querySelector(container).textContent.length > 0;
+function isValidForm(reading) {
+  return (reading['title'] && reading['author']);
 }
