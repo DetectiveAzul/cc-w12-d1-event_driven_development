@@ -4,44 +4,52 @@ document.addEventListener('DOMContentLoaded', () => {
   form.addEventListener('submit', handleForm);
 });
 
+//Handle methods
 function handleForm(event) {
   event.preventDefault();
+  const reading = createReading(this);
 
-  //Get the values for creating a Reading object
-  const reading = {
-    title: this.book_title.value,
-    author: this.author_name.value,
-    cathegory: this.category.value,
-    genre: this.select.value
-  };
-
-  // Check if is not a valid form
   if (!isValidForm(reading)) {
     console.warn("Author and Book cannot be empty");
     return ;
   }
 
-  console.table(reading);
+  const readingDiv = createReadingDiv();
+  addReading(reading, readingDiv);
+  this.reset();
+};
+
+
+//HELPERS METHODS
+function isValidForm(reading) {
+  return (reading['title'] && reading['author']);
+}
+
+function createReading(details) {
+  return {
+    title: details.book_title.value,
+    author: details.author_name.value,
+    cathegory: details.category.value,
+    genre: details.select.value
+  };
+}
+
+function createReadingDiv() {
   //Get the parent container for all the readings
   const allTheReadings = document.querySelector('#reading-list-container');
-  console.dir(allTheReadings);
   //Create a div for the book
   const readingDiv = document.createElement('fieldset');
-  console.dir(readingDiv);
   //Add the book div as a child for the parent container
   allTheReadings.appendChild(readingDiv);
-  //Transform the book onto html elements
+  //return the new div for the reading
+  return readingDiv;
+}
+
+function addReading(reading, readingDiv) {
   for (let key in reading) {
     let line = document.createElement('p');
     line.textContent = `${key}: ${reading[key]}`
     readingDiv.appendChild(line);
   };
 
-  console.log(readingDiv);
-  //Reset the form
-  this.reset();
-};
-
-function isValidForm(reading) {
-  return (reading['title'] && reading['author']);
 }
