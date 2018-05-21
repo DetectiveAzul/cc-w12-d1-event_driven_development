@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Reading List</title>
     <!-- links -->
-    <link rel="stylesheet" type="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" type="stylesheet" href="main.css">
     <script rel="javascript" type="text/javascript" src="model/app.js"></script>
   </head>
   <body>
@@ -19,15 +19,14 @@
         <input type="text" id="author_name">
         <legend>Category</legend>
         <label for="book">Book</label>
-        <input type="radio" id="category" name="category_selection" value="Book" />
+        <input type="radio" id="category" name="category_selection" value="Book" checked="checked" />
         <label for="blog_post">Blog Post</label>
         <input type="radio" id="category" name="category_selection" value="Blog Post" />
         <label for="blog_post">Fanfiction</label>
         <input type="radio" id="category" name="category_selection" value="Fanfiction" />
         <legend>Genre</legend>
         <select id="select">
-          <option disabled selected>Select Genre</option>
-          <option value="Young">Young</option>
+          <option selected="selected" value="Young">Young</option>
           <option value="Young Adult">Young Adult</option>
           <option value="Fantasy">Fantasy</option>
           <option value="Sci-fi">Sci-fi</option>

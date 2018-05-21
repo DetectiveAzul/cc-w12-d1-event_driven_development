@@ -6,6 +6,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function handleForm(event) {
   event.preventDefault();
+  //Check if is not a valid form
+  if (!isValidForm()) {
+    console.warn("Author and Book cannot be empty");
+    return ;
+  }
   //Console.log
   console.log("You have submitted the form");
   //Get the values for creating a Reading object
@@ -35,3 +40,10 @@ function handleForm(event) {
   //Reset the form
   this.reset();
 };
+
+function isValidForm() {
+  return isEmpty('#book_title') && isEmpty('#author_name');
+}
+function isEmpty(container) {
+  return document.querySelector(container).textContent.length > 0;
+}
