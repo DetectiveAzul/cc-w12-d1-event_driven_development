@@ -17,13 +17,13 @@
         <input type="text" id="book_title">
         <label for="author_name">Author</label>
         <input type="text" id="author_name">
-        <legend>Cathegory</legend>
+        <legend>Category</legend>
         <label for="book">Book</label>
-        <input type="radio" id="book" name="category-selection" value="Book" />
+        <input type="radio" id="category" name="category_selection" value="Book" />
         <label for="blog_post">Blog Post</label>
-        <input type="radio" id="blog_post" name="category-selection" value="Blog Post" />
+        <input type="radio" id="category" name="category_selection" value="Blog Post" />
         <label for="blog_post">Fanfiction</label>
-        <input type="radio" id="fanfiction" name="category-selection" value="Fanfiction" />
+        <input type="radio" id="category" name="category_selection" value="Fanfiction" />
         <legend>Genre</legend>
         <select id="select">
           <option disabled selected>Select Genre</option>
@@ -37,7 +37,7 @@
         <button type="submit" id="submit">Add Reading</button>
       </form>
     </fieldset>
-    <fieldset class="reading-list-container">
+    <fieldset id="reading-list-container">
       <legend>To Read:</legend>
       <!-- here will span the reading objects -->
     </fieldset>
